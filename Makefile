@@ -6,15 +6,16 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 16:37:56 by jhurpy            #+#    #+#              #
-#    Updated: 2023/05/07 16:38:19 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/05/11 20:40:56 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compiler and flags
 CC = gcc
-C_FLAGS = -Wall -Wextra -Werror
+C_FLAGS = -Wall -Wextra -Werror -g
 D_FLAGS = -MMD -MP -MF $(OBJ_DIR)/$*.d
-S_FLAGS = -g -fsanitize=address,undefined,leak
+M_FLAGS = -lmlx -framework OpenGL -framework AppKit
+#S_FLAGS = -g -fsanitize=address,undefined,leak
 
 # Commands
 RM = rm -rf
@@ -25,7 +26,7 @@ NAME = fdf.a
 SRC_DIR = src
 OBJ_DIR = obj
 INC_DIR = includes
-LIBS_DIR = libft
+LIBS_DIR = libft mlx
 
 # Sources, objects and dependencies
 SOURCES = $(wildcard $(SRC_DIR)/*.c)
@@ -36,13 +37,15 @@ all: $(LIBS_DIR) $(NAME)
 
 # Object file build rule
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(dir $@)
-	@$(CC) $(C_FLAGS) $(D_FLAGS) $(S_FLAGS) -I $(INC_DIR) -c $< -o $@
+	mkdir -p $(dir $@)
+	$(CC) $(C_FLAGS) $(D_FLAGS) $(S_FLAGS) -I $(INC_DIR) -c $< -o $@
 
 # Target library build rule
 $(NAME): $(OBJECTS)
-	@$(AR) $(NAME) $(OBJECTS)
-	@ranlib $(NAME)
+	make -C $(LIBS_DIR)
+	cp ./libft/libft.a $(NAME)
+	$(AR) $(NAME) $(M_FLAGS) $(OBJECTS)
+	ranlib $(NAME)
 
 # Rule to build each personal library
 $(LIBS_DIR):
@@ -51,10 +54,12 @@ $(LIBS_DIR):
 # Clean object files
 clean:
 	$(RM) $(OBJ_DIR)
+	make clean -C $(LIBS_DIR)
 
 # Clean object files and target library
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) $(LIBS_DIR)/libft.a
 
 # Clean and rebuild the target library
 re: fclean all
