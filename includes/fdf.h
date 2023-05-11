@@ -6,52 +6,58 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 01:51:50 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/10 03:43:24 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/12 01:13:09 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifdef FDF_H
+#ifndef FDF_H
 # define FDF_H
-# include "libft.h"
-# include "mlx.h"
+# include "../libft/includes/libft.h"
+# include "../mlx/mlx.h"
 # include <math.h>
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-# define WIN_WIDTH 1000
-# define WIN_HEIGHT 1000
+# define WIN_WIDTH 900
+# define WIN_HEIGHT 900
 # define WIN_NAME "FDF"
 
-typedef struct	s_point
+typedef struct s_pixel
 {
 	int			x;
 	int			y;
 	int			z;
 	int			color;
-}				t_point;
+}				t_pixel;
 
-/*
-Main functions
-*/
+typedef struct s_map
+{
+	int			rows;
+	int			columns;
+}				t_map;
 
-char	*create_struct_array(char *map);
+typedef struct s_mlx
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	void		*img_ptr;
+}				t_mlx;
 
-/*
-Error functions
-*/
+int	main(int ac, char **av);
 
-/*
-Utilitaries functions
-*/
+/*MAP*/
+void	count_rows_columns_map(t_map map, char *map);
+int	count_columns_map(char *line);
 
-void	realloc_2d_array(char ***ptr, size_t old_size, size_t new_size);
+/*MLX*/
+void	open_mlx();
+int		key_hook(int keycode, t_mlx *display);
+void	loop_hook(t_mlx *display);
 
-/*
-Free functions
-*/
+/*ERROR*/
+int	check_error_extension(char *map);
 
-void	free_2d_array(void **ptr, int i);
 
 #endif
