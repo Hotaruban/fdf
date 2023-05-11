@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error.c                                      :+:      :+:    :+:   */
+/*   close_mlx.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 17:40:31 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/12 00:47:54 by jhurpy           ###   ########.fr       */
+/*   Created: 2023/05/11 22:34:27 by jhurpy            #+#    #+#             */
+/*   Updated: 2023/05/12 00:55:20 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+#include "../mlx/mlx.h"
 #include "../libft/includes/libft.h"
 
-
-//int	check_error_map()
+//int		key_hook(int keycode, t_mlx *display) // close the window when ESC is pressed
 //{
-
+//	if (keycode == 53)
+//	{
+//		mlx_destroy_window(display->mlx_ptr, display->win_ptr);
+//		exit(0);
+//	}
+//	return (0);
 //}
 
-int	check_error_extension(char *map) // check if the map has a .fdf extension
-{
-	int		len;
-
-	len = ft_strlen(map) - 4;
-	if (len < 0)
-		return (1); // ERROR message to handle
-	if (ft_strncmp(&map[len], ".fdf", 4) != 0)
-		return (1); // ERROR message to handle
-	return (0);
-}
-
-//int	check_error_data_map()
+//void	loop_hook(t_mlx *display)
 //{
-
+//	exit(0);
 //}

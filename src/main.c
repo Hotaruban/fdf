@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 17:40:31 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/12 00:47:54 by jhurpy           ###   ########.fr       */
+/*   Created: 2023/05/11 16:24:38 by jhurpy            #+#    #+#             */
+/*   Updated: 2023/05/11 18:15:28 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
-#include "../libft/includes/libft.h"
-
-
-//int	check_error_map()
-//{
-
-//}
-
-int	check_error_extension(char *map) // check if the map has a .fdf extension
+int	main(int ac, char **av)
 {
-	int		len;
-
-	len = ft_strlen(map) - 4;
-	if (len < 0)
-		return (1); // ERROR message to handle
-	if (ft_strncmp(&map[len], ".fdf", 4) != 0)
-		return (1); // ERROR message to handle
+	/*if (ac != 2)
+	{
+		ft_putstr("Usage: <filename>./fdf\n");
+		return (0);
+	}
+	if (check_error_extension(av[1]))
+	{
+		ft_putstr("Error: invalid file extension\n");
+		return (0);
+	}
+	if (check_error_map(av[1]))
+	{
+		ft_putstr("Error: invalid map\n");
+		return (0);
+	}*/
+	open_mlx(av[1]);
 	return (0);
 }
-
-//int	check_error_data_map()
-//{
-
-//}
