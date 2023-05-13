@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 01:51:50 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/12 01:13:09 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/14 02:45:54 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,40 +24,40 @@
 # define WIN_HEIGHT 900
 # define WIN_NAME "FDF"
 
-typedef struct s_pixel
+typedef struct s_data1
 {
 	int			x;
 	int			y;
 	int			z;
 	int			color;
-}				t_pixel;
+}				t_data1;
 
-typedef struct s_map
+typedef struct s_data2
 {
 	int			rows;
 	int			columns;
-}				t_map;
+}				t_data2;
 
-typedef struct s_mlx
+typedef struct s_data3
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
 	void		*img_ptr;
-}				t_mlx;
+}				t_data3;
 
 int	main(int ac, char **av);
 
 /*MAP*/
-void	count_rows_columns_map(t_map map, char *map);
-int	count_columns_map(char *line);
+void	count_rows_columns(t_data2 map, char *map);
+int		count_columns(char *line);
 
 /*MLX*/
 void	open_mlx();
-int		key_hook(int keycode, t_mlx *display);
-void	loop_hook(t_mlx *display);
+int		key_hook(int keycode, t_data3 *display);
+void	loop_hook(t_data3 *display);
 
 /*ERROR*/
-int	check_error_extension(char *map);
-
+int		check_error_extension(char *map);
+int		check_error_data(char *ptr);
 
 #endif
