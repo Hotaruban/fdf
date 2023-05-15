@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 01:51:50 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/14 02:45:54 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/15 12:36:46 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,13 @@ typedef struct s_data1
 	int			y;
 	int			z;
 	int			color;
+	t_data2		*file;
 }				t_data1;
 
 typedef struct s_data2
 {
-	int			rows;
-	int			columns;
+	int			len_rows;
+	int			len_columns;
 }				t_data2;
 
 typedef struct s_data3
