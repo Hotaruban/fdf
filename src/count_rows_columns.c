@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/11 23:05:05 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/15 12:37:17 by jhurpy           ###   ########.fr       */
+/*   Created: 2023/05/15 15:49:00 by jhurpy            #+#    #+#             */
+/*   Updated: 2023/05/16 21:06:18 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fdf.h"
-#include "./includes/libft.h"
+#include "../includes/fdf.h"
 
 /*
 The function count_columns count the number of columns of a line.
@@ -19,52 +18,45 @@ The function count_columns count the number of columns of a line.
 
 static int	count_columns(char *line)
 {
-	int		i;
-	int		columns;
+	int	word_count;
+	int	in_word;
 
-	i = 0;
-	columns = 0;
-	while (line[i] != '\n')
+	word_count = 0;
+	in_word = 0;
+	while (*line != '\n')
 	{
-		while (line[i] == ' ')
-			i++;
-		if (line[i] != ' ')
+		if (*line == ' ')
+			in_word = 0;
+		else if (!in_word)
 		{
-			columns++;
-			while (line[i] != ' ')
-				i++;
+			word_count++;
+			in_word = 1;
 		}
+		line++;
 	}
-	return (columns);
+	return (word_count);
 }
 
 /*
 The function count_rows count the number of rows of the map.
 */
 
-static void	count_rows(t_data2 map_file, int fd)
+static void	count_rows(t_size *map_size, int fd)
 {
 	char	*ptr;
 
 	ptr = get_next_line(fd);
-	if (check_error_data(ptr, fd))
-		exit(1);
-	map_file->len_columns = count_columns(ptr);
-	map_file->len_rows = 1;
-	while(ptr != NULL)
+	map_size->col = count_columns(ptr);
+	map_size->row = 0;
+	while (ptr != NULL)
 	{
 		free(ptr);
-		map_file->len_rows++;
+		map_size->row++;
 		ptr = get_next_line(fd);
-		if (check_error_data(ptr, fd))
-			exit(1);
-		if (map_file->len_columns != count_columns(ptr))
-		{
-			free(ptr);
-			close(fd);
-			perror("Error: file is not a valid map");
-			exit(1);
-		}
+		if (ptr == NULL)
+			break ;
+		if (map_size->col != count_columns(ptr))
+			free_memory_close_fd(fd, ptr);
 	}
 	close(fd);
 }
@@ -73,7 +65,7 @@ static void	count_rows(t_data2 map_file, int fd)
 The function count_rows_columns count the number of rows and columns of the map.
 */
 
-void	count_rows_columns(t_data2 map_file, char *file)
+void	count_rows_columns(t_size *map_size, char *file)
 {
 	char	*ptr;
 	int		fd;
@@ -84,5 +76,5 @@ void	count_rows_columns(t_data2 map_file, char *file)
 		perror("Error: impossible to open the file");
 		exit(1);
 	}
-	count_rows(map_file, fd);
+	count_rows(map_size, fd);
 }
