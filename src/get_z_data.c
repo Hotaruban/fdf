@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 01:11:27 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/18 00:19:52 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/18 01:14:39 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static int	check_int_hex(char *str)
 The function copy_z_data is used to copy the z data from the file.
 */
 
-static void	copy_z_data(t_map **map, t_size size, char **str, int i, int fd)
+static void	copy_z_data(t_mothers mothership, char **str, int i, int fd)
 {
 	int		j;
 	char	**hex;
@@ -80,18 +80,18 @@ static void	copy_z_data(t_map **map, t_size size, char **str, int i, int fd)
 	while (str[j])
 	{
 		if (!check_int(str[j], '\0'))
-			map[i][j].z = ft_atoi(str[j]);
+			MMAP[i][j].z = ft_atoi(str[j]);
 		else if (!check_int_hex(str[j]))
 		{
 			hex = ft_split(str[j], ',');
-			map[i][j].z = ft_atoi(hex[0]);
-			map[i][j].color = ft_hexatoi(hex[1]);
+			MMAP[i][j].z = ft_atoi(hex[0]);
+			MMAP[i][j].color = ft_hexatoi(hex[1]);
 			free_null_2d_array(hex);
 		}
 		else
 		{
 			free_null_2d_array(str);
-			free_2d_array(map, size.row);
+			free_2d_array(MMAP, MSIZE.row);
 			exit_close_fd(fd, "Invalid map");
 		}
 		j++;
@@ -102,7 +102,7 @@ static void	copy_z_data(t_map **map, t_size size, char **str, int i, int fd)
 The function get_z_data is used to get the z data from the file.
 */
 
-void	get_z_data(t_map **map, t_size size, char *file)
+void	get_z_data(t_mothers mothership, char *file)
 {
 	int		fd;
 	int		line_num;
@@ -117,7 +117,7 @@ void	get_z_data(t_map **map, t_size size, char *file)
 	{
 		split = ft_split(line, ' ');
 		free(line);
-		copy_z_data(map, size, split, line_num, fd);
+		copy_z_data(mothership, split, line_num, fd);
 		free_null_2d_array(split);
 		line = get_next_line(fd);
 		if (line != NULL)
