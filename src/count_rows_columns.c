@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:49:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/17 23:00:25 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/17 23:12:50 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	count_rows(t_size *map_size, int fd)
 
 	ptr = get_next_line(fd);
 	if (ptr == NULL)
-		free_close_fd(ptr, fd, "Error: empty file!\n");
+		exit_free_close_fd(ptr, fd, "Error: empty file!\n");
 	map_size->col = count_columns(ptr);
 	map_size->row = 0;
 	while (ptr != NULL)
@@ -58,7 +58,7 @@ static void	count_rows(t_size *map_size, int fd)
 		if (ptr == NULL)
 			break ;
 		if (map_size->col != count_columns(ptr))
-			free_close_fd(ptr, fd, "Error: unvalid size of map!\n");
+			exit_free_close_fd(ptr, fd, "Error: unvalid size of map!\n");
 	}
 	close(fd);
 }

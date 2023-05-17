@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_memory.c                                      :+:      :+:    :+:   */
+/*   exit_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 22:20:26 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/17 23:20:21 by jhurpy           ###   ########.fr       */
+/*   Created: 2023/05/17 22:29:34 by jhurpy            #+#    #+#             */
+/*   Updated: 2023/05/17 23:23:19 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
 /*
-The free_2d_array function will free the memory of a double pointer.
+The function exit_error will exit the program and print the error message.
 */
 
-void	free_2d_array(t_map **ptr, int i)
+void	exit_error(char *str)
+{
+	perror(str);
+	exit(1);
+}
+
+/*
+The function exit_error_2d_arrays will free the memory and exit the program.
+*/
+
+void	exit_error_2d_arrays(t_map **ptr, int i, char *str)
 {
 	while (i)
 	{
@@ -24,21 +34,17 @@ void	free_2d_array(t_map **ptr, int i)
 		i--;
 	}
 	free(ptr);
+	exit_error(str);
 }
 
 /*
-The free_null_2d_array function will free the memory of a double pointer.
+The free_memory_close_fd function will free the memory and close the file.
 */
 
-void	free_null_2d_array(char **ptr)
+void	exit_free_close_fd(void *ptr, int fd, char *str)
 {
-	int	i;
-
-	i = 0;
-	while (ptr[i])
-	{
-		free(ptr[i]);
-		i++;
-	}
+	perror(str);
 	free(ptr);
+	close(fd);
+	exit(1);
 }
