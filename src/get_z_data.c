@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 01:11:27 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/17 23:14:53 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/17 23:39:59 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static int	check_int_hex(char *str)
 The function copy_z_data is used to copy the z data from the file.
 */
 
-static void	copy_z_data(t_map **map, char **str, int i, int fd)
+static void	copy_z_data(t_map **map, t_size size, char **str, int i, int fd)
 {
 	int		j;
 	char	**hex;
@@ -91,7 +91,8 @@ static void	copy_z_data(t_map **map, char **str, int i, int fd)
 		else
 		{
 			free_null_2d_array(str);
-			exit_free_close_fd(map, fd, "Invalid map");
+			free_2d_array(map, size.row);
+			exit_close_fd(fd, "Invalid map");
 		}
 		j++;
 	}
@@ -115,7 +116,7 @@ void	get_z_data(t_map **map, t_size size, char *file)
 	while (line != NULL)
 	{
 		split = ft_split(line, ' ');
-		copy_z_data(map, split, line_num, fd);
+		copy_z_data(map, size, split, line_num, fd);
 		free_null_2d_array(split);
 		free(line);
 		line = get_next_line(fd);

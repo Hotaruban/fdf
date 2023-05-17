@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 22:29:34 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/17 23:23:19 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/17 23:39:50 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ void	exit_free_close_fd(void *ptr, int fd, char *str)
 {
 	perror(str);
 	free(ptr);
+	close(fd);
+	exit(1);
+}
+
+void	exit_close_fd(int fd, char *str)
+{
+	perror(str);
 	close(fd);
 	exit(1);
 }

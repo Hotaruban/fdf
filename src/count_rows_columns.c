@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:49:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/17 23:12:50 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/17 23:47:00 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	count_rows(t_size *map_size, int fd)
 
 	ptr = get_next_line(fd);
 	if (ptr == NULL)
-		exit_free_close_fd(ptr, fd, "Error: empty file!\n");
+		exit_close_fd(fd, "Error: empty file!\n");
 	map_size->col = count_columns(ptr);
 	map_size->row = 0;
 	while (ptr != NULL)

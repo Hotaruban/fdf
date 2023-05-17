@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:32:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/17 23:28:34 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/17 23:42:06 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,15 @@ int	main(int ac, char **av)
 	map = creat_struct_map(size, map);
 	get_z_data(map, size, av[1]);
 	i = 0;
-	while (i < size.row)
-	{
-		j = 0;
-		while (j < size.col)
-		{
-			printf("[x = %d], [y = %d], [z = %d], [color = %d]\n", map[i][j].x, map[i][j].y, map[i][j].z, map[i][j].color);
-			j++;
-		}
-		i++;
-	}
+	//while (i < size.row)
+	//{
+	//	j = 0;
+	//	while (j < size.col)
+	//	{
+	//		printf("[x = %d], [y = %d], [z = %d], [color = %d]\n", map[i][j].x, map[i][j].y, map[i][j].z, map[i][j].color);
+	//		j++;
+	//	}
+	//	i++;
+	//}
 	free_2d_array(map, size.row);
 }
