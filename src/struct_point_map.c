@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:32:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/17 23:42:06 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/18 00:32:18 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,18 @@ int	main(int ac, char **av)
 	int		i;
 	int		j;
 
+	if (ac != 2)
+	{
+		perror("Error: no files provide!\n");
+		exit(1);
+	}
 	check_error_extension(av[1]);
 	count_rows_columns(&size, av[1]);
 	check_error_size_map(size);
 	map = creat_struct_map(size, map);
 	get_z_data(map, size, av[1]);
-	i = 0;
+	//printf("FREE OR NOT FREE\n");
+	//i = 0;
 	//while (i < size.row)
 	//{
 	//	j = 0;

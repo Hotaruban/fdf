@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 01:11:27 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/17 23:39:59 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/18 00:19:52 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,9 +116,9 @@ void	get_z_data(t_map **map, t_size size, char *file)
 	while (line != NULL)
 	{
 		split = ft_split(line, ' ');
+		free(line);
 		copy_z_data(map, size, split, line_num, fd);
 		free_null_2d_array(split);
-		free(line);
 		line = get_next_line(fd);
 		if (line != NULL)
 			line[ft_strlen(line) - 1] = '\0';

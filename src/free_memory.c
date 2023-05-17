@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:20:26 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/17 23:20:21 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/18 00:29:22 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@ The free_2d_array function will free the memory of a double pointer.
 
 void	free_2d_array(t_map **ptr, int i)
 {
-	while (i)
+	int	j;
+
+	j = 0;
+	while (j < i)
 	{
-		free(ptr[i]);
-		i--;
+		free(ptr[j]);
+		j++;
 	}
 	free(ptr);
 }
