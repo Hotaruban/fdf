@@ -5,60 +5,66 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 01:51:50 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/15 12:36:46 by jhurpy           ###   ########.fr       */
+/*   Created: 2023/05/15 15:22:58 by jhurpy            #+#    #+#             */
+/*   Updated: 2023/05/17 23:40:17 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# include "../libft/includes/libft.h"
+# include "../../libft/includes/libft.h"
 # include "../mlx/mlx.h"
 # include <math.h>
 # include <fcntl.h>
 # include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
 
-# define WIN_WIDTH 900
-# define WIN_HEIGHT 900
+# define WIN_WIDTH 1000
+# define WIN_HEIGHT 1000
 # define WIN_NAME "FDF"
 
-typedef struct s_data1
+typedef struct s_map
 {
-	int			x;
-	int			y;
-	int			z;
-	int			color;
-	t_data2		*file;
-}				t_data1;
+	int	x;
+	int	y;
+	int	z;
+	int	color;
+}			t_map;
 
-typedef struct s_data2
+typedef struct s_size
 {
-	int			len_rows;
-	int			len_columns;
-}				t_data2;
+	int	width_img;
+	int	height_img;
+	int	row;
+	int	col;
+}			t_size;
 
-typedef struct s_data3
-{
-	void		*mlx_ptr;
-	void		*win_ptr;
-	void		*img_ptr;
-}				t_data3;
+/*
+Function to check errors or exit.
+*/
+void		exit_error(char *str);
+void		exit_error_2d_arrays(t_map **ptr, int i, char *str);
+void		exit_free_close_fd(void *ptr, int fd, char *str);
+void	exit_close_fd(int fd, char *str);
+static void	check_error_extension(char *map);
+static void check_error_size_map(t_size size);
 
-int	main(int ac, char **av);
+/*
+Functions to count the number of rows and columns.
+*/
+void		count_rows_columns(t_size *map_size, char *file);
+static void	count_rows(t_size *map_size, int fd);
+static int	count_columns(char *line);
 
-/*MAP*/
-void	count_rows_columns(t_data2 map, char *map);
-int		count_columns(char *line);
-
-/*MLX*/
-void	open_mlx();
-int		key_hook(int keycode, t_data3 *display);
-void	loop_hook(t_data3 *display);
-
-/*ERROR*/
-int		check_error_extension(char *map);
-int		check_error_data(char *ptr);
+/*
+Function to creat the array of struct and initialize it.
+*/
+t_map		**creat_struct_map(t_size size, t_map **map);
+void		free_2d_array(t_map **ptr, int i);
+void		get_z_data(t_map **map,t_size size, char *file);
+static void	copy_z_data(t_map **map, t_size size, char **str, int i, int fd);
+static int	check_int_hex(char *str);
+static int	check_hexa(char *str);
+static int	check_int(char *str, char c);
+void		free_null_2d_array(char **ptr);
 
 #endif
