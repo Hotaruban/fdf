@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rotate_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/11 16:24:38 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/14 03:13:06 by jhurpy           ###   ########.fr       */
+/*   Created: 2023/05/23 16:54:19 by jhurpy            #+#    #+#             */
+/*   Updated: 2023/05/23 16:55:34 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fdf.h"
-#include "./includes/libft.h"
+#include "../includes/mlx_math.h"
 
-int	main(int ac, char **av)
-{
-	if (check_error_extension(av[1]))
-	{
-		ft_putstr("Error: invalid file extension\n");
-		return (0);
-	}
-	if (ac != 2)
-	{
-		ft_putstr("Usage: ./fdf <filename>\n");
-		return (0);
-	}
-	open_mlx(/*map_calculate*/);
-	return (0);
-}
+/*
+The function rotate_map rotates the map by the angle passed in parameter to be
+isometric.
+*/
+
