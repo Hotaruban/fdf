@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:32:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/18 01:21:25 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/23 15:26:54 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	check_error_size_map(t_size size)
 
 int	main(int ac, char **av)
 {
-	t_mothers	mothership;
+	t_data		sdata;
 	int			i;
 	int			j;
 
@@ -58,20 +58,12 @@ int	main(int ac, char **av)
 		exit(1);
 	}
 	check_error_extension(av[1]);
-	count_rows_columns(&MSIZE, av[1]);
-	check_error_size_map(MSIZE);
-	MMAP = creat_struct_map(MSIZE, MMAP);
-	get_z_data(mothership, av[1]);
-	i = 0;
-	while (i < MSIZE.row)
-	{
-		j = 0;
-		while (j < MSIZE.col)
-		{
-			printf("[x = %d], [y = %d], [z = %d], [color = %d]\n", MMAP[i][j].x, MMAP[i][j].y, MMAP[i][j].z, MMAP[i][j].color);
-			j++;
-		}
-		i++;
-	}
-	free_2d_array(MMAP, MSIZE.row);
+	count_rows_columns(&sdata.size, av[1]);
+	check_error_size_map(sdata.size);
+	sdata.map = creat_struct_map(sdata.size, sdata.map);
+	get_z_data(sdata, av[1]);
+
+	open_mlx(&sdata);
+
+	free_2d_array(sdata.map, sdata.size.row);
 }
