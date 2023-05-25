@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 16:37:56 by jhurpy            #+#    #+#              #
-#    Updated: 2023/05/18 01:28:00 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/05/23 13:37:15 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 CC = gcc
 C_FLAGS = -Wall -Wextra -Werror -g
 D_FLAGS = -MMD -MP -MF $(OBJ_DIR)/$*.d
-M_FLAGS = -lmlx -framework OpenGL -framework AppKit
+M_FLAGS = -L./mlx -lmlx -framework OpenGL -framework AppKit
 #S_FLAGS = -g -fsanitize=address,undefined,leak
 
 # Commands
@@ -26,7 +26,7 @@ NAME = fdf.a
 SRC_DIR = src
 OBJ_DIR = obj
 INC_DIR = includes
-LIBS_DIR = libft mlx
+LIBS_DIR = ../libft ./mlx
 
 # Sources, objects and dependencies
 SOURCES = $(wildcard $(SRC_DIR)/*.c)
@@ -43,7 +43,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 # Target library build rule
 $(NAME): $(OBJECTS)
 	make -C $(LIBS_DIR)
-	cp ./libft/libft.a $(NAME)
+	cp ../libft/libft.a $(NAME)
 	$(AR) $(NAME) $(M_FLAGS) $(OBJECTS)
 	ranlib $(NAME)
 
@@ -60,6 +60,7 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	$(RM) $(LIBS_DIR)/libft.a
+	make fclean -C $(LIBS_DIR)
 
 # Clean and rebuild the target library
 re: fclean all
