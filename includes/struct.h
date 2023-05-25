@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 00:58:41 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/23 13:40:53 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/26 04:54:52 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 
 typedef struct s_map
 {
-	int	x;
-	int	y;
-	int	z;
-	int	color;
+	float	x;
+	float	y;
+	float	z;
+	int		color;
 }			t_map;
 
 typedef struct s_size
 {
-	int	width_img;
-	int	height_img;
-	int	row;
-	int	col;
+	int		row;
+	int		col;
+	float	scale;
+	float	cen_x;
+	float	cen_y;
+	float	dx;
+	float	dy;
+	float	step;
 }			t_size;
 
 typedef struct s_mlx
@@ -46,12 +50,21 @@ typedef struct	s_img
 	int		endian;
 }				t_img;
 
+typedef struct s_point
+{
+	int	x;
+	int	y;
+	int	color;
+}			t_point;
+
 typedef struct s_data
 {
 	t_map	**map;
 	t_size	size;
 	t_mlx	mlx;
 	t_img	img;
+	t_point	node_1;
+	t_point	node_2;
 }				t_data;
 
 #endif
