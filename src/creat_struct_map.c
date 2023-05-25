@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 22:56:09 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/17 22:34:57 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/25 15:05:07 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ The function creat_struct_map creat an array of struct to save the map.
 
 t_map	**creat_struct_map(t_size size, t_map **map)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	map = (t_map **)malloc(sizeof(t_map *) * size.row);
 	if (map == NULL)
@@ -33,8 +33,8 @@ t_map	**creat_struct_map(t_size size, t_map **map)
 			exit_error_2d_arrays(map, i, "Error: malloc error!\n");
 		while (j < size.col)
 		{
-			map[i][j].x = i;
-			map[i][j].y = j;
+			map[i][j].x = i + 1;
+			map[i][j].y = j + 1;
 			map[i][j].color = 16777215;
 			j++;
 		}

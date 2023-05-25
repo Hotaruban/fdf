@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 01:11:27 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/23 00:34:39 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/23 18:43:43 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static void	copy_z_data(t_data sdata, char **str, int i, int fd)
 		else if (!check_int_hex(str[j]))
 		{
 			hex = ft_split(str[j], ',');
-			sdata.map[i][j].z = ft_atoi(hex[0]);
+			sdata.map[i][j].z = (float)ft_atoi(hex[0]);
 			sdata.map[i][j].color = ft_hexatoi(hex[1]);
 			free_null_2d_array(hex);
 		}
