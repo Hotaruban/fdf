@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 21:26:11 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/26 04:53:06 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/26 16:18:38 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	dda_draw_line(t_point node_1, t_point node_2, t_data *sdata)
 {
 	float	x;
 	float	y;
-	int	i;
+	int		i;
 
 	dda_coordinate(node_1, node_2, sdata);
 	x = node_1.x;

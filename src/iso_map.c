@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:30:23 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/26 04:53:16 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/26 16:19:27 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	center_point(int x, int y, t_map *map)
 	map->y = ((x + y) * sin(.523599)) - map->z;
 }
 
-void		convert_iso(t_data *sdata)
+void	convert_iso(t_data *sdata)
 {
 	int		i;
 	int		j;

@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 00:58:41 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/26 04:54:52 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/26 16:21:11 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_mlx
 	char	*img_data;
 }			t_mlx;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*img;
 	char	*addr;
