@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 17:43:21 by jeremy            #+#    #+#             */
-/*   Updated: 2023/05/14 02:23:27 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/17 18:37:14 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *s);
-int		ft_atoi_base(const char *str);
+int		ft_hexatoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -70,10 +70,12 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 /*
-The get_next_line project.
+The get_next_line project and his utils.
 */
 char	*get_next_line(int fd);
-size_t	special_strlen(const char *s);
+size_t	ft_strlen_gnl(const char *s, char c);
 int		find_n(char *s);
+void	ft_strlcat_gnl(char *dst, const char *src, size_t dstsize);
+void	ft_strlcpy_gnl(char *dst, const char *src, size_t dstsize);
 
 #endif
