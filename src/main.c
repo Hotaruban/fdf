@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:32:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/27 00:56:44 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 01:56:11 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ static void	check_error_size_map(t_size size)
 int	main(int ac, char **av)
 {
 	t_data		sdata;
-	int			i;
-	int			j;
 
 	if (ac != 2)
 	{

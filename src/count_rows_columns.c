@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:49:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/27 00:59:54 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 01:55:10 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ The count_rows_columns count the number of rows and columns of the map.
 
 void	count_rows_columns(t_size *map_size, char *file)
 {
-	char	*ptr;
 	int		fd;
 
 	fd = open(file, O_RDONLY);

@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 01:11:27 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/27 00:57:01 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 01:55:52 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,8 @@ static int	check_hexa(char *str)
 
 static int	check_int_hex(char *str)
 {
-	int		j;
 	char	*ptr;
 
-	j = 0;
 	ptr = ft_strchr(str, ',');
 	ptr++;
 	if (!check_int(str, ',') && !check_hexa(ptr))
