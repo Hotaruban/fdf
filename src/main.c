@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:32:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/27 01:56:11 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 04:54:38 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,4 @@ int	main(int ac, char **av)
 	sdata.map = creat_struct_map(sdata.size, sdata.map);
 	get_z_data(sdata, av[1]);
 	open_mlx(&sdata);
-	free_2d_array(sdata.map, sdata.size.row);
 }
