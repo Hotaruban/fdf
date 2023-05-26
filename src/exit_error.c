@@ -6,14 +6,14 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 22:29:34 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/18 00:30:50 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 00:57:12 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
 /*
-The function exit_error will exit the program and print the error message.
+The exit_error will exit the program and print the error message.
 */
 
 void	exit_error(char *str)
@@ -23,7 +23,7 @@ void	exit_error(char *str)
 }
 
 /*
-The function exit_error_2d_arrays will free the memory and exit the program.
+The exit_error_2d_arrays will free the memory and exit the program.
 */
 
 void	exit_error_2d_arrays(t_map **ptr, int i, char *str)
@@ -48,6 +48,10 @@ void	exit_free_close_fd(void *ptr, int fd, char *str)
 	close(fd);
 	exit(1);
 }
+
+/*
+The exit_close_fd function will close the file and exit the program.
+*/
 
 void	exit_close_fd(int fd, char *str)
 {

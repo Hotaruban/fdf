@@ -6,11 +6,15 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:30:23 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/26 16:19:27 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 00:56:48 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mlx_math.h"
+
+/*
+The convert_iso converts the map to isometric projection and centers it.
+*/
 
 static void	get_center(int x, int y, t_data *sdata)
 {

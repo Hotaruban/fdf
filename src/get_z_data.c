@@ -6,14 +6,14 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 01:11:27 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/26 02:14:25 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 00:57:01 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
 /*
-The function check_int, check_hexa and check_int_hex are used to check the
+The check_int, check_hexa and check_int_hex are used to check the
 validity of the z data.
 */
 
@@ -67,7 +67,7 @@ static int	check_int_hex(char *str)
 }
 
 /*
-The function copy_z_data is used to copy the z data from the file.
+The copy_z_data is used to copy the z data from the file.
 */
 
 static void	copy_z_data(t_data sdata, char **str, int i, int fd)
@@ -99,7 +99,7 @@ static void	copy_z_data(t_data sdata, char **str, int i, int fd)
 }
 
 /*
-The function get_z_data is used to get the z data from the file.
+The get_z_data is used to get the z data from the file.
 */
 
 void	get_z_data(t_data sdata, char *file)

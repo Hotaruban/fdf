@@ -6,14 +6,14 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 22:56:09 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/26 02:39:04 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 00:58:29 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
 /*
-The function creat_struct_map creat an array of struct to save the map.
+The creat_struct_map creat an array of struct to save the map.
 */
 
 t_map	**creat_struct_map(t_size size, t_map **map)

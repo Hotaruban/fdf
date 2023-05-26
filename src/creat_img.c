@@ -6,11 +6,16 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 22:04:49 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/26 16:18:25 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 00:59:37 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mlx_math.h"
+
+/*
+The creat_img and my_mlx_pixel_put functions are used to create an image
+and to draw a pixel on it.
+*/
 
 void	my_mlx_pixel_put(t_data *sdata, int x, int y, int color)
 {

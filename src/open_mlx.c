@@ -6,11 +6,15 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:20:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/26 16:20:04 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 00:56:34 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mlx_math.h"
+
+/*
+The open_mlx opens a window and displays the image.
+*/
 
 void	open_mlx(t_data *sdata)
 {

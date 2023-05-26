@@ -6,11 +6,15 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:32:58 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/26 04:53:23 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 01:06:52 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mlx_math.h"
+
+/*
+The scale_map scales the map to fit the window.
+*/
 
 static void	get_scale(t_data *sdata)
 {

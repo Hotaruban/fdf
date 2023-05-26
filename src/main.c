@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_point_map.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:32:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/26 16:20:25 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 00:56:44 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
 /*
-The function check_error_extension checks if the extension of the map is valid.
+The check_error_extension checks if the extension of the map is valid.
 */
 
 static void	check_error_extension(char *map)
@@ -34,7 +34,7 @@ static void	check_error_extension(char *map)
 }
 
 /*
-The function check_error_size_map checks if the size of the map is valid.
+The check_error_size_map checks if the size of the map is valid.
 */
 
 static void	check_error_size_map(t_size size)

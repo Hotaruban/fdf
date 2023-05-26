@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 22:34:27 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/26 16:16:01 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 01:06:49 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../includes/mlx_math.h"
 
 /*
-The function key_hook close the window when the ESC key is pressed.
+The key_hook close the window when the ESC key is pressed.
 */
 
 int	key_hook(int keycode, t_data *sdata)
@@ -27,7 +27,7 @@ int	key_hook(int keycode, t_data *sdata)
 }
 
 /*
-The function loop_hook close the window when the red cross is pressed.
+The loop_hook close the window when the red cross is pressed.
 */
 
 int	loop_hook(t_data *sdata)

@@ -6,14 +6,14 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:49:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/17 23:47:00 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 00:59:54 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
 /*
-The function count_columns count the number of columns of a line.
+The count_columns count the number of columns of a line.
 */
 
 static int	count_columns(char *line)
@@ -38,7 +38,7 @@ static int	count_columns(char *line)
 }
 
 /*
-The function count_rows count the number of rows of the map.
+The count_rows count the number of rows of the map.
 */
 
 static void	count_rows(t_size *map_size, int fd)
@@ -64,7 +64,7 @@ static void	count_rows(t_size *map_size, int fd)
 }
 
 /*
-The function count_rows_columns count the number of rows and columns of the map.
+The count_rows_columns count the number of rows and columns of the map.
 */
 
 void	count_rows_columns(t_size *map_size, char *file)
