@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 00:58:41 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/26 16:21:11 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 01:06:56 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ typedef struct s_img
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}				t_img;
+}			t_img;
 
 typedef struct s_point
 {
-	int	x;
-	int	y;
-	int	color;
+	int		x;
+	int		y;
+	int		color;
 }			t_point;
 
 typedef struct s_data
@@ -65,6 +65,6 @@ typedef struct s_data
 	t_img	img;
 	t_point	node_1;
 	t_point	node_2;
-}				t_data;
+}			t_data;
 
 #endif
