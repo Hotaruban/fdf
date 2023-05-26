@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 01:19:33 by jhurpy            #+#    #+#              #
-#    Updated: 2023/05/10 22:45:03 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/05/27 02:21:21 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,10 +41,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(NAME): $(OBJECTS)
 	@$(AR) $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
-
-# Rule to build each personal library
-$(LIBS_DIR):
-	$(MAKE) -C $@
 
 # Clean object files
 clean:

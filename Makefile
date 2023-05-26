@@ -6,15 +6,14 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 16:37:56 by jhurpy            #+#    #+#              #
-#    Updated: 2023/05/23 13:37:15 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/05/27 03:28:15 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compiler and flags
 CC = gcc
 C_FLAGS = -Wall -Wextra -Werror -g
-D_FLAGS = -MMD -MP -MF $(OBJ_DIR)/$*.d
-M_FLAGS = -L./mlx -lmlx -framework OpenGL -framework AppKit
+M_FLAGS = -Llibft -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit
 #S_FLAGS = -g -fsanitize=address,undefined,leak
 
 # Commands
@@ -22,53 +21,59 @@ RM = rm -rf
 AR = ar rc
 
 # Target library name and directories
-NAME = fdf.a
+NAME = fdf
+LIBFT = libft/libft.a
+MLX = mlx/libmlx.a
 SRC_DIR = src
 OBJ_DIR = obj
 INC_DIR = includes
-LIBS_DIR = ../libft ./mlx
+MLX_DIR = mlx
+LIBFT_DIR = libft
+INCS = -I$(INC_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR)
 
 # Sources, objects and dependencies
 SOURCES = $(wildcard $(SRC_DIR)/*.c)
 OBJECTS = $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Default target, build the library
-all: $(LIBS_DIR) $(NAME)
+all: $(LIBFT_DIR) $(MLX_DIR) $(NAME)
+
+# Rule to build each personal library
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+
+$(MLX):
+	make -C $(MLX_DIR)
 
 # Object file build rule
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	mkdir -p $(dir $@)
-	$(CC) $(C_FLAGS) $(D_FLAGS) $(S_FLAGS) -I $(INC_DIR) -c $< -o $@
+	$(CC) $(C_FLAGS) -c $< -o $@
 
 # Target library build rule
-$(NAME): $(OBJECTS)
-	make -C $(LIBS_DIR)
-	cp ../libft/libft.a $(NAME)
-	$(AR) $(NAME) $(M_FLAGS) $(OBJECTS)
-	ranlib $(NAME)
-
-# Rule to build each personal library
-$(LIBS_DIR):
-	$(MAKE) -C $@
+$(NAME): $(OBJECTS) $(LIBFT) $(MLX)
+	$(CC) $(C_FLAGS) $^ $(M_FLAGS) $(INCS) -o $(NAME)
 
 # Clean object files
 clean:
 	$(RM) $(OBJ_DIR)
-	make clean -C $(LIBS_DIR)
+	make clean -C $(LIBFT_DIR)
+	make clean -C $(MLX_DIR)
 
 # Clean object files and target library
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) $(LIBS_DIR)/libft.a
-	make fclean -C $(LIBS_DIR)
+	$(RM) $(LIBFT_DIR)/libft.a
+	$(RM) $(MLX_DIR)/libmlx.a
+	make fclean -C $(LIBFT_DIR)
 
 # Clean and rebuild the target library
 re: fclean all
 
 # Check code style
 norm:
-	norminette -R CheckForbiddenSourceHeader $(SRC_DIR)/*.c ; \
-	norminette -R CheckDefine $(INC_DIR)/*.h
+	@norminette -R CheckForbiddenSourceHeader $(SRC_DIR)/*.c ; 
+	@norminette -R CheckDefine $(INC_DIR)/*
 
 # Phony targets
 .PHONY: all clean fclean re norm

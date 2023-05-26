@@ -6,12 +6,11 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 22:34:27 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/27 01:54:46 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 02:16:07 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-#include "../includes/mlx_math.h"
 
 /*
 The key_hook close the window when the ESC key is pressed.

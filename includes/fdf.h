@@ -6,14 +6,14 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:22:58 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/27 02:01:20 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 02:15:57 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# include "./struct.h"
-# include "./mlx_math.h"
+# include "struct.h"
+# include "mlx_math.h"
 # include "../libft/includes/libft.h"
 # include "../mlx/mlx.h"
 # include <math.h>

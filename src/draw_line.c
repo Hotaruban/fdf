@@ -6,12 +6,11 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 21:26:11 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/27 01:55:29 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/27 02:16:21 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mlx_math.h"
-#include <math.h>
 
 /*
 The draw_row and draw_col draw a row or a column of the map.
