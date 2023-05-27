@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 16:37:56 by jhurpy            #+#    #+#              #
-#    Updated: 2023/05/27 03:28:15 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/05/27 23:39:00 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,8 +72,10 @@ re: fclean all
 
 # Check code style
 norm:
-	@norminette -R CheckForbiddenSourceHeader $(SRC_DIR)/*.c ; 
-	@norminette -R CheckDefine $(INC_DIR)/*
+	@norminette -R CheckForbiddenSourceHeader $(SRC_DIR)/*.c ;
+	@norminette -R CheckDefine $(INC_DIR)/*.h ;
+	@norminette -R CheckForbiddenSourceHeader $(LIBFT_DIR)/src/*.c ;
+	@norminette -R CheckDefine $(LIBFT_DIR)/includes/*.h
 
 # Phony targets
 .PHONY: all clean fclean re norm
