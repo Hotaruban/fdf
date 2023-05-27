@@ -6,7 +6,7 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 16:37:56 by jhurpy            #+#    #+#              #
-#    Updated: 2023/05/27 23:39:00 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/05/28 00:18:53 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,20 @@ AR = ar rc
 NAME = fdf
 LIBFT = libft/libft.a
 MLX = mlx/libmlx.a
-SRC_DIR = src
+SRC_DIR =src
+SRC_FILES = close_mlx.c \
+		count_rows_columns.c \
+		creat_img.c \
+		creat_struct_map.c \
+		draw_line.c \
+		exit_error.c \
+		free_memory.c \
+		get_z_data.c \
+		iso_map.c \
+		main.c \
+		open_mlx.c \
+		scale_map.c
+
 OBJ_DIR = obj
 INC_DIR = includes
 MLX_DIR = mlx
@@ -32,8 +45,8 @@ LIBFT_DIR = libft
 INCS = -I$(INC_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR)
 
 # Sources, objects and dependencies
-SOURCES = $(wildcard $(SRC_DIR)/*.c)
-OBJECTS = $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+SOURCES = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
+OBJECTS = $(SOURCES:$(SRC_DIR)%.c=$(OBJ_DIR)/%.o)
 
 # Default target, build the library
 all: $(LIBFT_DIR) $(MLX_DIR) $(NAME)
