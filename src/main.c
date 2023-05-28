@@ -6,11 +6,35 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:32:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/27 04:54:38 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/29 00:23:07 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+/*
+The check_z_data checks if the z data is valid.
+*/
+
+static void	check_z_data(t_data sdata)
+{
+	int		i;
+	int		j;
+
+	i = -1;
+	while (++i < sdata.size.row)
+	{
+		j = -1;
+		while (++j < sdata.size.col)
+		{
+			if (sdata.map[i][j].z > 250 || sdata.map[i][j].z < -250)
+			{
+				free_2d_array(sdata.map, sdata.size.row);
+				exit_error("Error: unvalid z data!\n");
+			}
+		}
+	}
+}
 
 /*
 The check_error_extension checks if the extension of the map is valid.
@@ -60,5 +84,6 @@ int	main(int ac, char **av)
 	check_error_size_map(sdata.size);
 	sdata.map = creat_struct_map(sdata.size, sdata.map);
 	get_z_data(sdata, av[1]);
+	check_z_data(sdata);
 	open_mlx(&sdata);
 }

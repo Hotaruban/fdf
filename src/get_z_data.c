@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 01:11:27 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/28 23:25:59 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/29 00:10:17 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ static int	check_int(char *str, char c)
 		if (!ft_isdigit(str[i]))
 			return (1);
 	}
-	if (ft_strlen(&str[i]) > 3)
-			return (1);
 	while (str[i] != c)
 	{
 		if (!ft_isdigit(str[i]))
@@ -84,7 +82,7 @@ static void	copy_z_data(t_data sdata, char **str, int i, int fd)
 	while (str[j])
 	{
 		if (!check_int(str[j], '\0'))
-			sdata.map[i][j].z = ft_atoi(str[j]);
+			sdata.map[i][j].z = (float)ft_atoi(str[j]);
 		else if (!check_int_hex(str[j]))
 		{
 			hex = ft_split(str[j], ',');
