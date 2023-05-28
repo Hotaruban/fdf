@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:32:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/29 00:23:07 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/29 03:58:05 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static void	check_z_data(t_data sdata)
 		j = -1;
 		while (++j < sdata.size.col)
 		{
-			if (sdata.map[i][j].z > 250 || sdata.map[i][j].z < -250)
+			if (sdata.map[i][j].z > 350 || sdata.map[i][j].z < -350)
 			{
 				free_2d_array(sdata.map, sdata.size.row);
-				exit_error("Error: unvalid z data!\n");
+				exit_error("Error: unvalid 'z' data!\n");
 			}
 		}
 	}
@@ -47,12 +47,12 @@ static void	check_error_extension(char *map)
 	len = ft_strlen(map) - 4;
 	if (len < 0)
 	{
-		perror("Error: unvalid extension of map!\n");
+		ft_putstr_fd("Error: unvalid extension of map!\n", 2);
 		exit(1);
 	}
 	if (ft_strncmp(&map[len], ".fdf", 4) != 0)
 	{
-		perror("Error: unvalid extension of map!\n");
+		ft_putstr_fd("Error: unvalid extension of map!\n", 2);
 		exit(1);
 	}
 }
@@ -65,7 +65,7 @@ static void	check_error_size_map(t_size size)
 {
 	if (size.row < 2 || size.col < 2)
 	{
-		perror("Error: unvalid size of map!\n");
+		ft_putstr_fd("Error: unvalid size of map!\n" ,2);
 		exit(1);
 	}
 }
@@ -76,7 +76,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		perror("Error: no files provide!\n");
+		ft_putstr_fd("Error: no files provide!\n", 2);
 		exit(1);
 	}
 	check_error_extension(av[1]);

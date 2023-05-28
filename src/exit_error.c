@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 22:29:34 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/28 23:51:53 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/29 03:55:59 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ The exit_error will exit the program and print the error message.
 
 void	exit_error(char *str)
 {
-	perror(str);
+	ft_putstr_fd(str, 2);
 	exit(1);
 }
 
@@ -43,7 +43,7 @@ The free_memory_close_fd function will free the memory and close the file.
 
 void	exit_free_close_fd(void *ptr, int fd, char *str)
 {
-	perror(str);
+	ft_putstr_fd(str, 2);
 	free(ptr);
 	close(fd);
 	exit(1);
@@ -55,7 +55,7 @@ The exit_close_fd function will close the file and exit the program.
 
 void	exit_close_fd(int fd, char *str)
 {
-	perror(str);
+	ft_putstr_fd(str, 2);
 	close(fd);
 	exit(1);
 }

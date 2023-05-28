@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 01:11:27 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/29 00:10:17 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/29 03:56:57 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static void	copy_z_data(t_data sdata, char **str, int i, int fd)
 		{
 			free_null_2d_array(str);
 			free_2d_array(sdata.map, sdata.size.row);
-			exit_close_fd(fd, "Invalid map");
+			exit_close_fd(fd, "Error: Invalid map!");
 		}
 		j++;
 	}
