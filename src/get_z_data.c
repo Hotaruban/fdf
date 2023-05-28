@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 01:11:27 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/27 23:39:46 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/28 23:25:59 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int	check_int(char *str, char c)
 		if (!ft_isdigit(str[i]))
 			return (1);
 	}
+	if (ft_strlen(&str[i]) > 3)
+			return (1);
 	while (str[i] != c)
 	{
 		if (!ft_isdigit(str[i]))
