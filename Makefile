@@ -6,13 +6,13 @@
 #    By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 16:37:56 by jhurpy            #+#    #+#              #
-#    Updated: 2023/05/28 00:18:53 by jhurpy           ###   ########.fr        #
+#    Updated: 2023/05/29 03:34:02 by jhurpy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compiler and flags
 CC = gcc
-C_FLAGS = -Wall -Wextra -Werror -g
+C_FLAGS = -Wall -Wextra -Werror -g -o3
 M_FLAGS = -Llibft -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit
 #S_FLAGS = -g -fsanitize=address,undefined,leak
 

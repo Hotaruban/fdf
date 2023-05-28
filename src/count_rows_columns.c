@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 15:49:00 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/27 01:55:10 by jhurpy           ###   ########.fr       */
+/*   Updated: 2023/05/29 03:30:38 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	count_columns(char *line)
 
 	word_count = 0;
 	in_word = 0;
-	while (*line != '\n')
+	while (*line && *line != '\n')
 	{
 		if (*line == ' ')
 			in_word = 0;
