@@ -6,7 +6,7 @@
 /*   By: jhurpy <jhurpy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 21:52:42 by jhurpy            #+#    #+#             */
-/*   Updated: 2023/05/26 16:49:41 by jhurpy           ###   ########.fr       */
+/*   Updated: 2024/01/27 18:45:50 by jhurpy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <unistd.h>
 # include <math.h>
 
-# define WIN_WIDTH 1100
-# define WIN_HEIGHT 900
+# define WIN_WIDTH 1024
+# define WIN_HEIGHT 768
 # define WIN_NAME "FDF"
 
 /*
